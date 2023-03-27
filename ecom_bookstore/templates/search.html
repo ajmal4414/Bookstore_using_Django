@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %} Search {% endblock title%}
+{% block content%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+<h3 class="text-secondary">Search Results</h3>
+    {% for every in object_list %}
+<div>
+    <h3><a href="{% url 'detail-view' every.pk %}">{{ every.title}}</a></h3>
+    <p> Author:{{ every.author }}</p>
+</div>
+{% empty %}
+<h5 class="text-danger">Nothing Found :(</h5>
+
+
+
+
+
+{% endfor %}
+</center>
+</body>
+</html>
+
+{% endblock content %}

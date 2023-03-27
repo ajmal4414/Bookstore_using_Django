@@ -1,0 +1,18 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="todo_app.todo.views.Signupform" />
+          <option value="todo_app.todo.views.SignUpView" />
+          <option value="todo_app.todo.views.*" />
+          <option value="todo_app.todo.models.*" />
+          <option value="django.views.register_fun" />
+          <option value="django.views.login_fun" />
+          <option value="list.user_set" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
