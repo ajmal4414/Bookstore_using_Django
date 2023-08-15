@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%}Cart{% endblock title %}
+{% block main-content %}
+<html>
+<head>
+     <title>Wishlist</title>
+</head>
+
+<style>
+  li {
+
+            margin: 10px 0;
+
+
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        li:hover {
+            background-color: #f5f5f5;
+            transform: translateY(-2px);
+        }
+
+        li img {
+            max-width: 100px;
+            margin-right: 20px;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            margin-bottom: -134px;
+        }
+
+        li p.description {
+            color: #777;
+            margin-top: 0;
+        }
+
+        p.empty-message {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #777;
+        }
+
+h3 {
+
+}
+</style>
+<body>
+<br><br>
+    <h1>Your Wishlist</h1><br>
+    {% if wishlist_items %}
+         <ul id="wishlist">
+            {% for wishlist_item in wishlist_items %}
+                <li>
+                    <h3>{{ wishlist_item.product.title }}</h3><br><br>
+
+                    <img src="{{ wishlist_item.product.image_url }}" alt="{{ wishlist_item.product.title }} Image">
+                    <p class="description">{{ wishlist_item.product.description }}</p>
+                    <!-- Other details you want to display -->
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="empty-message">Your wishlist is empty.</p>
+    {% endif %}
+</body>
+
+
+<script>
+     <script>
+        // Example wishlist data (you can replace this with actual data)
+        const wishlistData = [
+            { title: "Product 1", description: "Description 1", image_url: "image1.jpg" },
+            { title: "Product 2", description: "Description 2", image_url: "image2.jpg" },
+            // ... other wishlist items
+        ];
+
+        const wishlistContainer = document.getElementById("wishlist");
+
+        // Function to render wishlist items
+        function renderWishlistItems() {
+            wishlistContainer.innerHTML = "";
+            wishlistData.forEach(item => {
+                const li = document.createElement("li");
+                li.innerHTML = `
+                    <h3>${item.title}</h3>
+                    <img src="${item.image_url}" alt="${item.title} Image">
+                    <p>${item.description}</p>
+                    <button class="remove-btn">Remove</button>
+                `;
+                wishlistContainer.appendChild(li);
+            });
+
+            // Attach event listeners to remove buttons
+            const removeButtons = document.querySelectorAll(".remove-btn");
+            removeButtons.forEach((button, index) => {
+                button.addEventListener("click", () => {
+                    wishlistData.splice(index, 1);
+                    renderWishlistItems();
+                });
+            });
+        }
+
+        // Initial rendering
+        renderWishlistItems();
+    </script>
+
+
+
+</html>
+{% endblock main-content %}

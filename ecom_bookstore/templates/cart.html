@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%}Cart{% endblock title %}
+{% block main-content %}
+
+
+
+
+<body style="background: lightgray;">
+<section class="vh-100">
+    <div class="container h-100">
+        <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col">
+                    <p><span class="h2">Shopping Cart and Wishlist</span></p>
+
+                    <!-- Display Cart Items -->
+                    <h3>Shopping Cart</h3>
+                    {% if cart_items %}
+                        <ul>
+                            {% for cart_item in cart_items %}
+                                <li>
+                                    <img src="{{ cart_item.product.image_url }}" alt="{{ cart_item.product.title }}" class="img-fluid">
+                                    <p class="small text-muted mb-4 pb-2"><strong>Name:</strong> {{ cart_item.product.title }}</p>
+                                    <p class="lead fw-normal mb-0"><strong>Price:</strong> ${{ cart_item.product.price }}</p>
+                                    <p class="small text-muted mb-4 pb-2"><strong>Quantity:</strong> {{ cart_item.quantity }}</p>
+                                    <a href="">
+                                        <p class="small text-muted mb-4 pb-2"><strong>Remove</strong></p>
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p>Your cart is empty.</p>
+                    {% endif %}
+
+{% endblock main-content %}

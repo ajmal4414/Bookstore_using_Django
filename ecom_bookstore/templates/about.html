@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}About{% endblock title %}
+
+{% block banner-slider %}
+
+
+<style>
+    <style>
+.carousel-inner {
+  height: 400px;
+}
+
+.carousel-item img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-section {
+  background-color: #f8f8f8;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: justify;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+</style>
+
+
+</style>
+
+<br><br>
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+   <div class="carousel-inner">
+     <div class="carousel-item active">
+      <img src="{% static "images/a1.jpg" %}" class="d-block w-100" alt="images">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static "images/a1.jpg" %}" class="d-block w-100" alt="images">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static "images/a1.jpg" %}" class="d-block w-100" alt="images">
+    </div>
+  </div>
+  </div>
+{% endblock banner-slider %}
+
+
+
+{% block main-content %}
+<div class="contanier mt-3">
+    <br>
+    <h2 class="text-center">About Us</h2>
+    <br>
+    <div class="about-section">Welcome to our bookstore!
+        We are passionate about books and aim to provide a wide range of titles to book lovers. Whether
+        you're a fan of fiction, non-fiction, or any other genre, we
+        have something for everyone. Our knowledgeable staff is always
+        ready to assist you in finding the perfect book for your reading
+        pleasure. We believe in the power of books to inspire, educate, and
+        entertain, and we strive to create an inviting and comfortable
+        environment for our customers.
+
+        At our bookstore, you'll find a curated selection of both popular and
+        lesser-known titles. We regularly update our collection to ensure a
+        fresh and diverse reading experience.
+        Visit us today and immerse yourself in the world of books!</div>
+
+</div>
+<br><br>
+{% endblock main-content %}
+

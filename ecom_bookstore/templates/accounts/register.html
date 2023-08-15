@@ -1,0 +1,162 @@
+{% extends 'base.html'%}
+{% block title %}SignUp {% endblock title %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+
+<!--    .container {-->
+<!--  max-width: 600px;-->
+<!--  margin: 0 auto;-->
+<!--  padding: 20px;-->
+<!--}-->
+
+
+
+
+<style>
+  body {
+    background: url('http://cdn.wallpapersafari.com/13/6/Mpsg2b.jpg');
+    margin: 0px;
+    font-family: 'Ubuntu', sans-serif;
+    background-size: 100% 110%;
+}
+
+h1, h2, h3, h4, h5, h6, a {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.signup-header {
+    color: #fff;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #4facff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #000;
+    box-sizing: border-box;
+    padding: 2rem;
+    width: 80%;
+    max-width: 400px;
+}
+
+.signup input[type="text"],
+.signup input[type="password"] {
+    width: 100%;
+    line-height: 3em;
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0.5rem 0;
+    border-radius: 5px;
+    border: 2px solid #f2f2f2;
+    outline: none;
+    padding-left: 10px;
+}
+
+.signup-form button[type="submit"] {
+    height: 40px;
+    width: 100%;
+    max-width: 200px;
+    background: #fff;
+    border: 1px solid #f2f2f2;
+    border-radius: 20px;
+    color: slategrey;
+    text-transform: uppercase;
+    font-family: 'Ubuntu', sans-serif;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.sign-up {
+    color: #f2f2f2;
+    margin-top: 1rem;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.no-access {
+    color: #E86850;
+    margin-top: 2rem;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.try-again {
+    color: #f2f2f2;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Media Query */
+@media only screen and (min-width: 150px) and (max-width: 530px) {
+    .signup-form h3 {
+        text-align: center;
+        margin: 0;
+    }
+
+    .sign-up,
+    .no-access {
+        margin: 10px 0;
+    }
+
+    .signup-button {
+        margin-bottom: 10px;
+    }
+}
+    </style>
+
+
+</style>
+<body>
+
+ <div class="container">
+
+    <h1 class="signup-header">Sign Up</h1>
+    <form method="post" action="" class="signup-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class= "btn btn-success signup-button">Sign up</button>
+        <p class="sign-up">Already have an account? <a href="#">Sign In</a></p>
+    </form>
+ </div>
+
+  <script>
+        function validateForm() {
+            // Get form elements
+            var firstNameInput = document.getElementById('id_first_name');
+            var lastNameInput = document.getElementById('id_last_name');
+            var emailInput = document.getElementById('id_email');
+            var passwordInput = document.getElementById('id_password');
+
+            // Perform validation (Example: Checking if first name is not empty)
+            if (firstNameInput.value.trim() === '') {
+                alert('Please enter your first name.');
+                firstNameInput.focus();
+                return false;
+            }
+
+            // Add more validation rules for other form fields as needed...
+
+            return true; // Submit the form if all validations pass
+        }
+    </script>
+</body>
+</html>
+{% endblock %}

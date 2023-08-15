@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+    /* styles.css */
+/* Add your custom styles here */
+
+/* Style the container */
+.container {
+  padding: 20px;
+}
+
+/* Adjust the card size */
+.card {
+  width: 100%;
+  max-width: 13rem;
+  margin-bottom: 1rem;
+}
+
+/* Style the card title */
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Style the card text */
+.card-text {
+  font-size: 16px;
+}
+
+/* Add custom styles to the "Available" and "Out of stock" items */
+.text-primary {
+  color: green;
+}
+
+.text-danger {
+  color: red;
+}
+
+
+</style>
+ <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="container">
+<div class="row">
+    {% for each in object_list %}
+<!--    <div class="col">-->
+<!--        <div class="container">-->
+<!--            <div class="row mx-auto">-->
+
+           <div class="col-sm-6 col-md-4 col-lg-4 mb-4">
+
+<!--        <div class="col-sm-6 col-md-3 col-lg-3"><br><br>-->
+        <div class="card" style="width: 13rem; ">
+            <img src="{{ each.image_url}}" class="card-img-top" alt="..">
+            <div class="card-body">
+                <h5 class="card-title">{{ each.title}}</h5>
+                <p class="card-text">Rs/-: {{each.price|floatformat:2}}</p>
+                {% if each.book_available is True %}
+                <li class="text-primary">Available</li>
+                {% else %}
+                <li class="text-danger">Out of stock!</li>
+                {% endif %}
+             <a href="{% url 'detail-view' each.id %} " class="btn btn-outline-dark">view</a>
+
+            </div>
+            </div>
+        </div>
+
+          {% cycle '' '' '</div><div class="row">' %}
+    {% endfor %}
+  </div>
+<!--    </div>-->
+<!--        </div>-->
+<!--        </div>-->
+
+</div>
+{% endblock content %}
+
+
+<script>
+
+</script>

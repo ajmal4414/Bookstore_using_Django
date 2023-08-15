@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    /* Your custom CSS styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    display: flex;
+    max-width: 840px;
+}
+
+.card-img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.card-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 16px;
+}
+
+.btn {
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-danger {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.btn-outline-success {
+    background-color: transparent;
+    border: 1px solid #28a745;
+    color: #28a745;
+    padding: 5px 8px; /* Adjust the padding to make the button smaller */
+    font-size: 12px; /* Adjust the font size to make the button text smaller */
+    border-radius: 3px; /* Add border-radius to make the button edges slightly rounded */
+    width: 100px; /* Adjust the width as needed */
+    height: 30px; /* Adjust the height as needed */
+    /* Add more styles as needed */
+}
+
+
+
+</style>
+<div class="card mb3" style="max-width:840px;">
+    <div class="col-md-4">
+        <img src="{{ object.image_url }}" class="card-img">
+    </div>
+    <div class="col-md-8">
+        <div class="card-body">
+            <h4 class="card-title">{{object.title}}</h4>
+            <p class="card-text">{{object.description}}</p>
+        </div>
+    </div>
+</div>
+{% if object.book_available is True %}
+<!--adding cart button-->
+<!--<div class="buttons row flex" style="font-family: Rajdhani;">-->
+<!--    <button type="submit" class="d-grid gap-2 btn1 btn btn-danger-->
+<!--     p-1 m-1 btn-lg text-decoration-none text-white">Add to Cart</button>-->
+
+<!--add frm-->
+<!--<form action="/addtocart" class="d-inline">-->
+<form action="{% url 'detail-view' pk=object.pk %}" method="GET" class="d-inline">
+
+<input type="hidden" name="prod_id" value="{{ object.id }}"/>
+    <button type="submit" class="btn btn-danger" role="button">Add to Cart</button><br>
+
+</form>
+<a href="{% url 'checkout-view' object.pk %}" class="btn btn-outline-success" role="button">Buy Now</a><br>
+{% else %}
+<h4 class="text-danger">Out of Stock..!</h4>
+{% endif %}
+<br>
+</body>
+<script>
+
+    // JavaScript for handling button clicks or any dynamic functionality
+document.addEventListener('DOMContentLoaded', function () {
+    const addToCartBtn = document.querySelector('.btn-danger');
+
+    addToCartBtn.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        // Custom logic for handling "Add to Cart" button click
+        // For example, you might want to send an AJAX request to add the item to the cart
+
+        alert('Item added to cart!');
+    });
+});
+
+
+</script>
+</html>
+{% endblock content%}

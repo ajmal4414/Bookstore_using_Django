@@ -1,0 +1,277 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block banner-slider %}
+
+<style>
+#carouselExampleSlidesOnly {
+  width: 100%; /* Make the carousel width 100% of its parent container */
+  max-width: 1000px; /* Set a maximum width to avoid it becoming too large */
+  margin: 0 auto; /* Center the carousel horizontally on the page */
+}
+
+/* Ensure the carousel images are responsive and fit the carousel container */
+.carousel-inner img {
+  width: 100%;
+  height: auto;
+}
+
+<!--text book ttle stle-->
+
+/* Adjust the container size and text style */
+.container {
+  width: 100%;
+  max-width: 800px; /* Set a maximum width to control the text width */
+  margin: 0 auto; /* Center the container horizontally on the page */
+  padding: 20px; /* Add some padding around the text */
+}
+
+/* Style the 'home-content' div */
+#home-content {
+  text-align: center; /* Center align the text within the div */
+}
+
+/* Style the 'h1' heading */
+h1 {
+  font-size: 36px; /* Adjust the font size as needed */
+}
+
+/* Style the 'small' text */
+small {
+  font-size: 18px; /* Adjust the font size as needed */
+  line-height: 1.6; /* Add some line spacing for better readability */
+}
+
+
+
+ body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .btn {
+        background-color: #f8f8f8;
+        border: 1px solid #ddd;
+        padding: 10px 20px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        font-size: 18px;
+    }
+
+
+
+    h1 {
+        font-size: 32px;
+        text-align: center;
+        color: #333;
+    }
+
+    small {
+        font-size: 16px;
+        line-height: 1.5;
+        color: #666;
+    }
+
+
+
+body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .col-md-4, .col-sm-4 {
+        width: calc(33.33% - 20px); /* Adjust the width and margins as needed */
+        margin: 10px;
+    }
+
+    .book {
+        position: relative;
+    }
+
+    .fit-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .stry {
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 5px;
+        font-size: 14px;
+    }
+
+
+
+
+
+</style>
+<br><br>
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+   <div class="carousel-inner">
+     <div class="carousel-item active">
+      <img src="{% static "images/book3.jpg" %}" class="d-block w-100" alt="images" width="1500" height="857">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static "images/book21.jpg" %}" class="d-block w-100" alt="images">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static "images/bka.jpg" %}" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  </div>
+{% endblock banner-slider %}
+
+{% block information %}
+<div class="container">
+    <div class="btn btn-light btn-lg ">
+            <div id="home-content">
+        <h1></h1>
+                <br><br>
+
+          <small><center>
+             "Reading is important. If you know how to read, then the whole world opens up to you."
+                                                                              <br>
+                                                                <p class="author">Barack Obama</p></center>
+
+               <br>
+
+              <br>
+
+              <br>
+.</small>
+
+                <!--         <small class="fs-S">Lorem ipsum dolor sit amet. Aut dolores beatae vel veritatis facere et-->
+<!--            minima ipsa quo dolor ipsam. Ut alias voluptate aut rerum enim sit-->
+<!--            dicta quaerat et corrupti voluptatem qui doloribus ullam.-->
+
+<!--            Et magni eligendi 33 dolorum totam id ipsum perspiciatis eos omnis-->
+<!--            placeat. Qui omnis esse sit quisquam impedit et numquam accusamus-->
+<!--            ut laborum exercitationem. Sit dignissimos nesciunt eos soluta-->
+<!--            ducimus aut iusto architecto aut deleniti doloribus. Id perferendis-->
+<!--            consequatur ut distinctio omnis vel sapiente blanditiis a nesciunt-->
+<!--            eveniet vel minima deserunt hic excepturi iste qui sint accusantium.</small>-->
+        </div>
+    </div>
+</div>
+
+{% endblock information %}
+
+{% block main-content %}
+<div class="container">
+
+    <h2 class="text-center">Books </h2>
+    <br><br>
+    <div class="row container">
+        <div class="col-md-4 col-sm-4 mi-go wow fadeInUp"
+         data-wow-duration="1s" data-wow-delay="0.6s"
+         style="animation-duration: 1s; animation-delay: 0.6s;
+         animation-name: none;">
+            <div class="smggbook smbg">
+                <a href="#">
+                    <div class="book text-center">
+                        <img src="{% static "books/stry.jpg" %}" class="img-responsive"
+                        alt="">
+                        <p class="stry">Autobiograpphy</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+
+         <div class="col-md-4 col-sm-4 mi-go wow fadeInUp"
+         data-wow-duration="1s" data-wow-delay="0.6s"
+         style="animation-duration: 1s; animation-delay: 0.6s;
+         animation-name: none;">
+            <div class="smggbook smbg">
+                <a href="#">
+                    <div class="book text-center">
+                        <img src="{% static "books/poem2.jpg" %}" class="img-responsive"
+                        alt="">
+                        <p class="stry">Poetry</p>
+                    </div>
+                </a>
+            </div>
+
+
+
+
+
+    </div>
+    </div>
+<br/><br/>
+{% endblock main-content %}
+
+    <script>
+  // JavaScript code for styling
+  document.addEventListener("DOMContentLoaded", function () {
+    const container = document.querySelector(".container");
+    const btn = document.querySelector(".btn");
+    const homeContent = document.querySelector("#home-content");
+    const h1 = document.querySelector("h1");
+    const small = document.querySelector("small");
+
+    container.style.textAlign = "center";
+    container.style.marginTop = "50px";
+
+    btn.style.backgroundColor = "#f8f8f8";
+    btn.style.border = "1px solid #ddd";
+    btn.style.padding = "20px";
+    btn.style.borderRadius = "5px";
+    btn.style.boxShadow = "0px 0px 5px rgba(0, 0, 0, 0.1)";
+
+    h1.style.fontSize = "32px";
+    h1.style.color = "#333";
+
+    small.style.fontSize = "16px";
+    small.style.lineHeight = "1.5";
+    small.style.color = "#666";
+  });
+
+
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const autobiographyLink = document.getElementById("autobiography");
+
+    autobiographyLink.addEventListener("click", function (event) {
+      event.preventDefault();
+      // Your custom book click logic goes here
+      alert("You clicked on Autobiography!");
+    });
+  });
+
+
+</script>
